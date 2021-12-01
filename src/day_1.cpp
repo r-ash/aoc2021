@@ -27,6 +27,7 @@ int count_increases(std::vector<int> values) {
 //' @export
 // [[Rcpp::export]]
 int window_increases(std::vector<int> values) {
+  // We could do this in 1 loop but let's reuse count_increases func
   std::vector<int> window = get_window(values);
   return count_increases(window);
 }
