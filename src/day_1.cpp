@@ -1,8 +1,6 @@
 #include <Rcpp.h>
 #include <math.h>
 #include "day_1.h"
-using namespace Rcpp;
-using std::vector;
 
 //' Count number of times a sequence of numbers increases.
 //'
