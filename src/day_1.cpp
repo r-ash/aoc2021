@@ -12,7 +12,7 @@ int count_increases(std::vector<int> values) {
   int increases = 0;
   for (std::size_t i = 1; i < values.size(); ++i) {
     if (values[i] > values[i - 1]) {
-      increases += 1;
+      increases++;
     }
   }
   return increases;
