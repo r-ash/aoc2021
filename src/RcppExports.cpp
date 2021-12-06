@@ -32,6 +32,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// total_distance
+int total_distance(std::vector<std::string> commands);
+RcppExport SEXP _aoc2021_total_distance(SEXP commandsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type commands(commandsSEXP);
+    rcpp_result_gen = Rcpp::wrap(total_distance(commands));
+    return rcpp_result_gen;
+END_RCPP
+}
+// total_distance_2
+int total_distance_2(std::vector<std::string> commands);
+RcppExport SEXP _aoc2021_total_distance_2(SEXP commandsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type commands(commandsSEXP);
+    rcpp_result_gen = Rcpp::wrap(total_distance_2(commands));
+    return rcpp_result_gen;
+END_RCPP
+}
 // model_fish
 std::vector<int> model_fish(std::vector<int> fish, int days);
 RcppExport SEXP _aoc2021_model_fish(SEXP fishSEXP, SEXP daysSEXP) {
@@ -83,6 +105,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
+    {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
+    {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_model_fish", (DL_FUNC) &_aoc2021_model_fish, 2},
     {"_aoc2021_run_day", (DL_FUNC) &_aoc2021_run_day, 1},
     {"_aoc2021_count_fish", (DL_FUNC) &_aoc2021_count_fish, 2},

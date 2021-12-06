@@ -19,6 +19,30 @@ window_increases <- function(values) {
     .Call(`_aoc2021_window_increases`, values)
 }
 
+#' Get the distance traveled from a set of commands.
+#'
+#' This is the result horizontal * result depth.
+#'
+#' @param commands Vector of commands for the submarine,
+#'   e.g. forward 2, down 3 or up 5
+#' @return The distance traveled by the submarine, resultant depth * horizontal
+#' @export
+total_distance <- function(commands) {
+    .Call(`_aoc2021_total_distance`, commands)
+}
+
+#' Get the distance traveled from a set of commands for puzzle 2.
+#'
+#' This is the result horizontal * result depth.
+#'
+#' @param commands Vector of commands for the submarine,
+#'   e.g. forward 2, down 3 or up 5
+#' @return The distance traveled by the submarine, resultant depth * horizontal
+#' @export
+total_distance_2 <- function(commands) {
+    .Call(`_aoc2021_total_distance_2`, commands)
+}
+
 #' Model fish internal timers for a number of days for some initial fish state.
 #'
 #' @param fish Vector of fish internal timers
