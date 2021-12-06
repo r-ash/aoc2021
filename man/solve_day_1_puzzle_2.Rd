@@ -10,7 +10,7 @@ solve_day_1_puzzle_2(file)
 \item{file}{Path to file of component masses}
 }
 \value{
-The fuel required to launch all the components and the fuel itself
+The number of times a three-measurement sliding window increases
 }
 \description{
 Solve day 1 problem 2

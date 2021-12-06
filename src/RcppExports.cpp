@@ -32,10 +32,61 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// model_fish
+std::vector<int> model_fish(std::vector<int> fish, int days);
+RcppExport SEXP _aoc2021_model_fish(SEXP fishSEXP, SEXP daysSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type fish(fishSEXP);
+    Rcpp::traits::input_parameter< int >::type days(daysSEXP);
+    rcpp_result_gen = Rcpp::wrap(model_fish(fish, days));
+    return rcpp_result_gen;
+END_RCPP
+}
+// run_day
+std::vector<int> run_day(std::vector<int> fish);
+RcppExport SEXP _aoc2021_run_day(SEXP fishSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type fish(fishSEXP);
+    rcpp_result_gen = Rcpp::wrap(run_day(fish));
+    return rcpp_result_gen;
+END_RCPP
+}
+// count_fish
+int count_fish(std::vector<int> fish, int days);
+RcppExport SEXP _aoc2021_count_fish(SEXP fishSEXP, SEXP daysSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type fish(fishSEXP);
+    Rcpp::traits::input_parameter< int >::type days(daysSEXP);
+    rcpp_result_gen = Rcpp::wrap(count_fish(fish, days));
+    return rcpp_result_gen;
+END_RCPP
+}
+// count_fish_class
+long count_fish_class(std::vector<int> fish, int days);
+RcppExport SEXP _aoc2021_count_fish_class(SEXP fishSEXP, SEXP daysSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type fish(fishSEXP);
+    Rcpp::traits::input_parameter< int >::type days(daysSEXP);
+    rcpp_result_gen = Rcpp::wrap(count_fish_class(fish, days));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
+    {"_aoc2021_model_fish", (DL_FUNC) &_aoc2021_model_fish, 2},
+    {"_aoc2021_run_day", (DL_FUNC) &_aoc2021_run_day, 1},
+    {"_aoc2021_count_fish", (DL_FUNC) &_aoc2021_count_fish, 2},
+    {"_aoc2021_count_fish_class", (DL_FUNC) &_aoc2021_count_fish_class, 2},
     {NULL, NULL, 0}
 };
 

@@ -19,3 +19,46 @@ window_increases <- function(values) {
     .Call(`_aoc2021_window_increases`, values)
 }
 
+#' Model fish internal timers for a number of days for some initial fish state.
+#'
+#' @param fish Vector of fish internal timers
+#' @param days The number of days to run
+#' @return The final state of fish internal timers
+#' @export
+model_fish <- function(fish, days) {
+    .Call(`_aoc2021_model_fish`, fish, days)
+}
+
+#' Run a single day through fish timer.
+#'
+#' Take a vector of fish timers, reduce their values by 1 or if 0
+#' reset timer to 6. If timer was reset, add a new fish to the end
+#' with start timer of 8.
+#'
+#' @param fish Vector of fish internal timers
+#' @return The final state of fish internal timers
+#' @export
+run_day <- function(fish) {
+    .Call(`_aoc2021_run_day`, fish)
+}
+
+#' Count the number of fish after a number of days from some internal state
+#'
+#' @param fish Vector of fish internal timers
+#' @param days The number of days to run
+#' @return The final number of fish
+#' @export
+count_fish <- function(fish, days) {
+    .Call(`_aoc2021_count_fish`, fish, days)
+}
+
+#' Count the number of fish after a number of days from some internal state
+#'
+#' @param fish Vector of fish internal timers
+#' @param days The number of days to run
+#' @return The final number of fish
+#' @export
+count_fish_class <- function(fish, days) {
+    .Call(`_aoc2021_count_fish_class`, fish, days)
+}
+
