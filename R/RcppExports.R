@@ -86,3 +86,41 @@ count_fish_class <- function(fish, days) {
     .Call(`_aoc2021_count_fish_class`, fish, days)
 }
 
+#' Get the cost of aligning crabs to a particular position
+#'
+#' @param positions Vector of crab positions
+#' @param alignment_position Final crab positions
+#' @return The fuel cost of aligning to that position
+#' @export
+position_cost <- function(positions, alignment_position) {
+    .Call(`_aoc2021_position_cost`, positions, alignment_position)
+}
+
+#' Get the lowest amount of fuel needed for all crabs to align.
+#'
+#' @param positions Vector of crab horizontal positions
+#' @return The minimum fuel needed for the crabs to align
+#' @export
+optimal_position <- function(positions) {
+    .Call(`_aoc2021_optimal_position`, positions)
+}
+
+#' Get the cost of aligning crabs to a particular position
+#'
+#' @param positions Vector of crab positions
+#' @param alignment_position Final crab positions
+#' @return The fuel cost of aligning to that position
+#' @export
+position_cost_2 <- function(positions, alignment_position) {
+    .Call(`_aoc2021_position_cost_2`, positions, alignment_position)
+}
+
+#' Get the lowest amount of fuel needed for all crabs to align puzzle 2.
+#'
+#' @param positions Vector of crab horizontal positions
+#' @return The minimum fuel needed for the crabs to align
+#' @export
+optimal_position_2 <- function(positions) {
+    .Call(`_aoc2021_optimal_position_2`, positions)
+}
+

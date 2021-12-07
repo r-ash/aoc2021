@@ -101,6 +101,52 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// position_cost
+int position_cost(std::vector<int> positions, int alignment_position);
+RcppExport SEXP _aoc2021_position_cost(SEXP positionsSEXP, SEXP alignment_positionSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type positions(positionsSEXP);
+    Rcpp::traits::input_parameter< int >::type alignment_position(alignment_positionSEXP);
+    rcpp_result_gen = Rcpp::wrap(position_cost(positions, alignment_position));
+    return rcpp_result_gen;
+END_RCPP
+}
+// optimal_position
+int optimal_position(std::vector<int> positions);
+RcppExport SEXP _aoc2021_optimal_position(SEXP positionsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type positions(positionsSEXP);
+    rcpp_result_gen = Rcpp::wrap(optimal_position(positions));
+    return rcpp_result_gen;
+END_RCPP
+}
+// position_cost_2
+int position_cost_2(std::vector<int> positions, int alignment_position);
+RcppExport SEXP _aoc2021_position_cost_2(SEXP positionsSEXP, SEXP alignment_positionSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type positions(positionsSEXP);
+    Rcpp::traits::input_parameter< int >::type alignment_position(alignment_positionSEXP);
+    rcpp_result_gen = Rcpp::wrap(position_cost_2(positions, alignment_position));
+    return rcpp_result_gen;
+END_RCPP
+}
+// optimal_position_2
+int optimal_position_2(std::vector<int> positions);
+RcppExport SEXP _aoc2021_optimal_position_2(SEXP positionsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type positions(positionsSEXP);
+    rcpp_result_gen = Rcpp::wrap(optimal_position_2(positions));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
@@ -111,6 +157,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_run_day", (DL_FUNC) &_aoc2021_run_day, 1},
     {"_aoc2021_count_fish", (DL_FUNC) &_aoc2021_count_fish, 2},
     {"_aoc2021_count_fish_class", (DL_FUNC) &_aoc2021_count_fish_class, 2},
+    {"_aoc2021_position_cost", (DL_FUNC) &_aoc2021_position_cost, 2},
+    {"_aoc2021_optimal_position", (DL_FUNC) &_aoc2021_optimal_position, 1},
+    {"_aoc2021_position_cost_2", (DL_FUNC) &_aoc2021_position_cost_2, 2},
+    {"_aoc2021_optimal_position_2", (DL_FUNC) &_aoc2021_optimal_position_2, 1},
     {NULL, NULL, 0}
 };
 
