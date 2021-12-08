@@ -54,6 +54,39 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_coordinates
+std::vector<std::array<int, 4>> get_coordinates(std::vector<std::string> vents);
+RcppExport SEXP _aoc2021_get_coordinates(SEXP ventsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type vents(ventsSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_coordinates(vents));
+    return rcpp_result_gen;
+END_RCPP
+}
+// count_dangerous_areas
+int count_dangerous_areas(std::vector<std::string> vents);
+RcppExport SEXP _aoc2021_count_dangerous_areas(SEXP ventsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type vents(ventsSEXP);
+    rcpp_result_gen = Rcpp::wrap(count_dangerous_areas(vents));
+    return rcpp_result_gen;
+END_RCPP
+}
+// count_dangerous_areas_2
+int count_dangerous_areas_2(std::vector<std::string> vents);
+RcppExport SEXP _aoc2021_count_dangerous_areas_2(SEXP ventsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type vents(ventsSEXP);
+    rcpp_result_gen = Rcpp::wrap(count_dangerous_areas_2(vents));
+    return rcpp_result_gen;
+END_RCPP
+}
 // model_fish
 std::vector<int> model_fish(std::vector<int> fish, int days);
 RcppExport SEXP _aoc2021_model_fish(SEXP fishSEXP, SEXP daysSEXP) {
@@ -147,12 +180,61 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// str_in
+bool str_in(std::string a, std::string b);
+RcppExport SEXP _aoc2021_str_in(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type a(aSEXP);
+    Rcpp::traits::input_parameter< std::string >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(str_in(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// str_diff
+std::string str_diff(std::string a, std::string b);
+RcppExport SEXP _aoc2021_str_diff(SEXP aSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type a(aSEXP);
+    Rcpp::traits::input_parameter< std::string >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(str_diff(a, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// count_digits
+int count_digits(std::vector<std::string> entries);
+RcppExport SEXP _aoc2021_count_digits(SEXP entriesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type entries(entriesSEXP);
+    rcpp_result_gen = Rcpp::wrap(count_digits(entries));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sum_readings
+int sum_readings(std::vector<std::string> entries);
+RcppExport SEXP _aoc2021_sum_readings(SEXP entriesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type entries(entriesSEXP);
+    rcpp_result_gen = Rcpp::wrap(sum_readings(entries));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
+    {"_aoc2021_get_coordinates", (DL_FUNC) &_aoc2021_get_coordinates, 1},
+    {"_aoc2021_count_dangerous_areas", (DL_FUNC) &_aoc2021_count_dangerous_areas, 1},
+    {"_aoc2021_count_dangerous_areas_2", (DL_FUNC) &_aoc2021_count_dangerous_areas_2, 1},
     {"_aoc2021_model_fish", (DL_FUNC) &_aoc2021_model_fish, 2},
     {"_aoc2021_run_day", (DL_FUNC) &_aoc2021_run_day, 1},
     {"_aoc2021_count_fish", (DL_FUNC) &_aoc2021_count_fish, 2},
@@ -161,6 +243,10 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_optimal_position", (DL_FUNC) &_aoc2021_optimal_position, 1},
     {"_aoc2021_position_cost_2", (DL_FUNC) &_aoc2021_position_cost_2, 2},
     {"_aoc2021_optimal_position_2", (DL_FUNC) &_aoc2021_optimal_position_2, 1},
+    {"_aoc2021_str_in", (DL_FUNC) &_aoc2021_str_in, 2},
+    {"_aoc2021_str_diff", (DL_FUNC) &_aoc2021_str_diff, 2},
+    {"_aoc2021_count_digits", (DL_FUNC) &_aoc2021_count_digits, 1},
+    {"_aoc2021_sum_readings", (DL_FUNC) &_aoc2021_sum_readings, 1},
     {NULL, NULL, 0}
 };
 

@@ -43,6 +43,37 @@ total_distance_2 <- function(commands) {
     .Call(`_aoc2021_total_distance_2`, commands)
 }
 
+#' Get the coordinates x1, y1, x2, y2 from input string of vent
+#'
+#' Takes vector of strings of format "0,9 -> 5,9" and parses to vector
+#' of arrays
+#'
+#' @param commands Vector of commands for the submarine,
+#'   e.g. forward 2, down 3 or up 5
+#' @return The distance traveled by the submarine, resultant depth * horizontal
+#' @export
+get_coordinates <- function(vents) {
+    .Call(`_aoc2021_get_coordinates`, vents)
+}
+
+#' Count dangerous areas from input string of vent paths
+#'
+#' @param vents Vent paths
+#' @return The count of dangerous areas
+#' @export
+count_dangerous_areas <- function(vents) {
+    .Call(`_aoc2021_count_dangerous_areas`, vents)
+}
+
+#' Count dangerous areas from input string of vent paths
+#'
+#' @param vents Vent paths
+#' @return The count of dangerous areas
+#' @export
+count_dangerous_areas_2 <- function(vents) {
+    .Call(`_aoc2021_count_dangerous_areas_2`, vents)
+}
+
 #' Model fish internal timers for a number of days for some initial fish state.
 #'
 #' @param fish Vector of fish internal timers
@@ -122,5 +153,45 @@ position_cost_2 <- function(positions, alignment_position) {
 #' @export
 optimal_position_2 <- function(positions) {
     .Call(`_aoc2021_optimal_position_2`, positions)
+}
+
+#' Check if string b is in a, in any order.
+#'
+#' @param a superstring
+#' @param b substring to test.
+#' @return true if all characters in b are in a
+#' @export
+str_in <- function(a, b) {
+    .Call(`_aoc2021_str_in`, a, b)
+}
+
+#' Remove characters of b from a.
+#'
+#' @param a string to remove from
+#' @param b the string to remove
+#' @return String a with characters from b removed
+#' @export
+str_diff <- function(a, b) {
+    .Call(`_aoc2021_str_diff`, a, b)
+}
+
+#' Count the number of times 1, 4, 7 or 8 appear in log entries
+#'
+#' @param entries Log entries of form 10 signal patterns | delimitter and
+#'   4 output values
+#' @return The number of times 1, 4, 7 or 8 appear
+#' @export
+count_digits <- function(entries) {
+    .Call(`_aoc2021_count_digits`, entries)
+}
+
+#' Count the number of times 1, 4, 7 or 8 appear in log entries
+#'
+#' @param entries Log entries of form 10 signal patterns | delimitter and
+#'   4 output values
+#' @return The number of times 1, 4, 7 or 8 appear
+#' @export
+sum_readings <- function(entries) {
+    .Call(`_aoc2021_sum_readings`, entries)
 }
 
