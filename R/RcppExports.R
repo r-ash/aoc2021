@@ -204,3 +204,21 @@ sum_readings <- function(entries) {
     .Call(`_aoc2021_sum_readings`, entries)
 }
 
+#' Get the low points from heightmap
+#'
+#' @param commands map Heightmap
+#' @return The low points in the heightmap
+#' @export
+get_low_points <- function(map) {
+    .Call(`_aoc2021_get_low_points`, map)
+}
+
+#' Get the risk level from heightmap
+#'
+#' @param commands map Heightmap
+#' @return The risk level
+#' @export
+risk_level <- function(map) {
+    .Call(`_aoc2021_risk_level`, map)
+}
+

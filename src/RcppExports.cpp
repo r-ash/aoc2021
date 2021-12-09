@@ -237,6 +237,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_low_points
+std::vector<int> get_low_points(std::vector<std::string> map);
+RcppExport SEXP _aoc2021_get_low_points(SEXP mapSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type map(mapSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_low_points(map));
+    return rcpp_result_gen;
+END_RCPP
+}
+// risk_level
+int risk_level(std::vector<std::string> map);
+RcppExport SEXP _aoc2021_risk_level(SEXP mapSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type map(mapSEXP);
+    rcpp_result_gen = Rcpp::wrap(risk_level(map));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
@@ -259,6 +281,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_str_diff", (DL_FUNC) &_aoc2021_str_diff, 2},
     {"_aoc2021_count_digits", (DL_FUNC) &_aoc2021_count_digits, 1},
     {"_aoc2021_sum_readings", (DL_FUNC) &_aoc2021_sum_readings, 1},
+    {"_aoc2021_get_low_points", (DL_FUNC) &_aoc2021_get_low_points, 1},
+    {"_aoc2021_risk_level", (DL_FUNC) &_aoc2021_risk_level, 1},
     {NULL, NULL, 0}
 };
 
