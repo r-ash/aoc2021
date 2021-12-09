@@ -54,6 +54,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// power_consumption
+int power_consumption(std::vector<std::string> numbers);
+RcppExport SEXP _aoc2021_power_consumption(SEXP numbersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type numbers(numbersSEXP);
+    rcpp_result_gen = Rcpp::wrap(power_consumption(numbers));
+    return rcpp_result_gen;
+END_RCPP
+}
 // get_coordinates
 std::vector<std::array<int, 4>> get_coordinates(std::vector<std::string> vents);
 RcppExport SEXP _aoc2021_get_coordinates(SEXP ventsSEXP) {
@@ -232,6 +243,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
+    {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
     {"_aoc2021_get_coordinates", (DL_FUNC) &_aoc2021_get_coordinates, 1},
     {"_aoc2021_count_dangerous_areas", (DL_FUNC) &_aoc2021_count_dangerous_areas, 1},
     {"_aoc2021_count_dangerous_areas_2", (DL_FUNC) &_aoc2021_count_dangerous_areas_2, 1},

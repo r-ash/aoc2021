@@ -43,6 +43,15 @@ total_distance_2 <- function(commands) {
     .Call(`_aoc2021_total_distance_2`, commands)
 }
 
+#' Get the power consumption from set of bytes
+#'
+#' @param numbers Vector of binary numbers
+#' @return The power consumption
+#' @export
+power_consumption <- function(numbers) {
+    .Call(`_aoc2021_power_consumption`, numbers)
+}
+
 #' Get the coordinates x1, y1, x2, y2 from input string of vent
 #'
 #' Takes vector of strings of format "0,9 -> 5,9" and parses to vector
