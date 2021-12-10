@@ -32,6 +32,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// error_score
+int error_score(std::vector<std::string> nav_system);
+RcppExport SEXP _aoc2021_error_score(SEXP nav_systemSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type nav_system(nav_systemSEXP);
+    rcpp_result_gen = Rcpp::wrap(error_score(nav_system));
+    return rcpp_result_gen;
+END_RCPP
+}
+// autocomplete_score
+long autocomplete_score(std::vector<std::string> nav_system);
+RcppExport SEXP _aoc2021_autocomplete_score(SEXP nav_systemSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type nav_system(nav_systemSEXP);
+    rcpp_result_gen = Rcpp::wrap(autocomplete_score(nav_system));
+    return rcpp_result_gen;
+END_RCPP
+}
 // total_distance
 int total_distance(std::vector<std::string> commands);
 RcppExport SEXP _aoc2021_total_distance(SEXP commandsSEXP) {
@@ -285,6 +307,8 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
+    {"_aoc2021_error_score", (DL_FUNC) &_aoc2021_error_score, 1},
+    {"_aoc2021_autocomplete_score", (DL_FUNC) &_aoc2021_autocomplete_score, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},

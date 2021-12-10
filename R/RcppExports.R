@@ -19,6 +19,24 @@ window_increases <- function(values) {
     .Call(`_aoc2021_window_increases`, values)
 }
 
+#' Get the error score from nav system.
+#'
+#' @param commands Vector of nav system entries
+#' @return The syntax error score
+#' @export
+error_score <- function(nav_system) {
+    .Call(`_aoc2021_error_score`, nav_system)
+}
+
+#' Get the autocomplete from nav system.
+#'
+#' @param commands Vector of nav system entries
+#' @return The autocomplete score
+#' @export
+autocomplete_score <- function(nav_system) {
+    .Call(`_aoc2021_autocomplete_score`, nav_system)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.
