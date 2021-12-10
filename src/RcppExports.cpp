@@ -65,6 +65,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// life_support_rating
+int life_support_rating(std::vector<std::string> numbers);
+RcppExport SEXP _aoc2021_life_support_rating(SEXP numbersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type numbers(numbersSEXP);
+    rcpp_result_gen = Rcpp::wrap(life_support_rating(numbers));
+    return rcpp_result_gen;
+END_RCPP
+}
 // get_coordinates
 std::vector<std::array<int, 4>> get_coordinates(std::vector<std::string> vents);
 RcppExport SEXP _aoc2021_get_coordinates(SEXP ventsSEXP) {
@@ -238,13 +249,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // get_low_points
-std::vector<int> get_low_points(std::vector<std::string> map);
-RcppExport SEXP _aoc2021_get_low_points(SEXP mapSEXP) {
+std::vector<std::array<int, 2>> get_low_points(std::vector<std::vector<int>> parsed);
+RcppExport SEXP _aoc2021_get_low_points(SEXP parsedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::vector<std::string> >::type map(mapSEXP);
-    rcpp_result_gen = Rcpp::wrap(get_low_points(map));
+    Rcpp::traits::input_parameter< std::vector<std::vector<int>> >::type parsed(parsedSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_low_points(parsed));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -259,6 +270,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// basin_sizes
+int basin_sizes(std::vector<std::string> map);
+RcppExport SEXP _aoc2021_basin_sizes(SEXP mapSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type map(mapSEXP);
+    rcpp_result_gen = Rcpp::wrap(basin_sizes(map));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_count_increases", (DL_FUNC) &_aoc2021_count_increases, 1},
@@ -266,6 +288,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
+    {"_aoc2021_life_support_rating", (DL_FUNC) &_aoc2021_life_support_rating, 1},
     {"_aoc2021_get_coordinates", (DL_FUNC) &_aoc2021_get_coordinates, 1},
     {"_aoc2021_count_dangerous_areas", (DL_FUNC) &_aoc2021_count_dangerous_areas, 1},
     {"_aoc2021_count_dangerous_areas_2", (DL_FUNC) &_aoc2021_count_dangerous_areas_2, 1},
@@ -283,6 +306,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_sum_readings", (DL_FUNC) &_aoc2021_sum_readings, 1},
     {"_aoc2021_get_low_points", (DL_FUNC) &_aoc2021_get_low_points, 1},
     {"_aoc2021_risk_level", (DL_FUNC) &_aoc2021_risk_level, 1},
+    {"_aoc2021_basin_sizes", (DL_FUNC) &_aoc2021_basin_sizes, 1},
     {NULL, NULL, 0}
 };
 

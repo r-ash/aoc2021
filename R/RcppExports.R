@@ -52,6 +52,15 @@ power_consumption <- function(numbers) {
     .Call(`_aoc2021_power_consumption`, numbers)
 }
 
+#' Get the life support rating from set of bytes
+#'
+#' @param numbers Vector of binary numbers
+#' @return The life support rating
+#' @export
+life_support_rating <- function(numbers) {
+    .Call(`_aoc2021_life_support_rating`, numbers)
+}
+
 #' Get the coordinates x1, y1, x2, y2 from input string of vent
 #'
 #' Takes vector of strings of format "0,9 -> 5,9" and parses to vector
@@ -206,19 +215,28 @@ sum_readings <- function(entries) {
 
 #' Get the low points from heightmap
 #'
-#' @param commands map Heightmap
+#' @param map Heightmap
 #' @return The low points in the heightmap
 #' @export
-get_low_points <- function(map) {
-    .Call(`_aoc2021_get_low_points`, map)
+get_low_points <- function(parsed) {
+    .Call(`_aoc2021_get_low_points`, parsed)
 }
 
 #' Get the risk level from heightmap
 #'
-#' @param commands map Heightmap
+#' @param map Heightmap
 #' @return The risk level
 #' @export
 risk_level <- function(map) {
     .Call(`_aoc2021_risk_level`, map)
+}
+
+#' Get the value of largest 3 basins multiplied together
+#'
+#' @param map height map
+#' @return The size of 3 largest basins multiplied together
+#' @export
+basin_sizes <- function(map) {
+    .Call(`_aoc2021_basin_sizes`, map)
 }
 
