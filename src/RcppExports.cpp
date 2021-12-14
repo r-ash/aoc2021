@@ -155,6 +155,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// winning_score
+int winning_score(std::vector<std::vector<int>> input);
+RcppExport SEXP _aoc2021_winning_score(SEXP inputSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::vector<int>> >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(winning_score(input));
+    return rcpp_result_gen;
+END_RCPP
+}
+// losing_score
+int losing_score(std::vector<std::vector<int>> input);
+RcppExport SEXP _aoc2021_losing_score(SEXP inputSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::vector<int>> >::type input(inputSEXP);
+    rcpp_result_gen = Rcpp::wrap(losing_score(input));
+    return rcpp_result_gen;
+END_RCPP
+}
 // get_coordinates
 std::vector<std::array<int, 4>> get_coordinates(std::vector<std::string> vents);
 RcppExport SEXP _aoc2021_get_coordinates(SEXP ventsSEXP) {
@@ -375,6 +397,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
     {"_aoc2021_life_support_rating", (DL_FUNC) &_aoc2021_life_support_rating, 1},
+    {"_aoc2021_winning_score", (DL_FUNC) &_aoc2021_winning_score, 1},
+    {"_aoc2021_losing_score", (DL_FUNC) &_aoc2021_losing_score, 1},
     {"_aoc2021_get_coordinates", (DL_FUNC) &_aoc2021_get_coordinates, 1},
     {"_aoc2021_count_dangerous_areas", (DL_FUNC) &_aoc2021_count_dangerous_areas, 1},
     {"_aoc2021_count_dangerous_areas_2", (DL_FUNC) &_aoc2021_count_dangerous_areas_2, 1},

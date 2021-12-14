@@ -124,6 +124,22 @@ life_support_rating <- function(numbers) {
     .Call(`_aoc2021_life_support_rating`, numbers)
 }
 
+#' Print the winning bingo score
+#'
+#' @param input Puzzle input
+#' @export
+winning_score <- function(input) {
+    .Call(`_aoc2021_winning_score`, input)
+}
+
+#' Print the losing bingo score
+#'
+#' @param input Puzzle input
+#' @export
+losing_score <- function(input) {
+    .Call(`_aoc2021_losing_score`, input)
+}
+
 #' Get the coordinates x1, y1, x2, y2 from input string of vent
 #'
 #' Takes vector of strings of format "0,9 -> 5,9" and parses to vector
