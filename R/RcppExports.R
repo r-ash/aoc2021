@@ -37,6 +37,26 @@ autocomplete_score <- function(nav_system) {
     .Call(`_aoc2021_autocomplete_score`, nav_system)
 }
 
+#' Count the number of times grid of octopuses flashed
+#'
+#' @param octopuses Grid of octopuses
+#' @param steps The number of steps to run
+#' @return The total number of times an octopus flashed
+#' @export
+get_flashes <- function(octopuses, steps) {
+    .Call(`_aoc2021_get_flashes`, octopuses, steps)
+}
+
+#' Get the first day all octopuses flash
+#'
+#' @param octopuses Grid of octopuses
+#' @param steps The number of steps to run
+#' @return The first day all octopuses flash
+#' @export
+get_first_all_flash <- function(octopuses, steps) {
+    .Call(`_aoc2021_get_first_all_flash`, octopuses, steps)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.

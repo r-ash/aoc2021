@@ -54,6 +54,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_flashes
+int get_flashes(std::vector<std::string> octopuses, int steps);
+RcppExport SEXP _aoc2021_get_flashes(SEXP octopusesSEXP, SEXP stepsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type octopuses(octopusesSEXP);
+    Rcpp::traits::input_parameter< int >::type steps(stepsSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_flashes(octopuses, steps));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_first_all_flash
+int get_first_all_flash(std::vector<std::string> octopuses, int steps);
+RcppExport SEXP _aoc2021_get_first_all_flash(SEXP octopusesSEXP, SEXP stepsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type octopuses(octopusesSEXP);
+    Rcpp::traits::input_parameter< int >::type steps(stepsSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_first_all_flash(octopuses, steps));
+    return rcpp_result_gen;
+END_RCPP
+}
 // total_distance
 int total_distance(std::vector<std::string> commands);
 RcppExport SEXP _aoc2021_total_distance(SEXP commandsSEXP) {
@@ -309,6 +333,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_window_increases", (DL_FUNC) &_aoc2021_window_increases, 1},
     {"_aoc2021_error_score", (DL_FUNC) &_aoc2021_error_score, 1},
     {"_aoc2021_autocomplete_score", (DL_FUNC) &_aoc2021_autocomplete_score, 1},
+    {"_aoc2021_get_flashes", (DL_FUNC) &_aoc2021_get_flashes, 2},
+    {"_aoc2021_get_first_all_flash", (DL_FUNC) &_aoc2021_get_first_all_flash, 2},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
