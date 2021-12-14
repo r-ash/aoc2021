@@ -57,6 +57,23 @@ get_first_all_flash <- function(octopuses, steps) {
     .Call(`_aoc2021_get_first_all_flash`, octopuses, steps)
 }
 
+#' Get the total number of marked dots after folding
+#'
+#' @param input Puzzle input
+#' @return Number of marked dots
+#' @export
+total_dots <- function(input) {
+    .Call(`_aoc2021_total_dots`, input)
+}
+
+#' Print the text output from folding
+#'
+#' @param input Puzzle input
+#' @export
+print_output <- function(input) {
+    invisible(.Call(`_aoc2021_print_output`, input))
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.
