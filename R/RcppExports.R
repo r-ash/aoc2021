@@ -74,6 +74,14 @@ print_output <- function(input) {
     invisible(.Call(`_aoc2021_print_output`, input))
 }
 
+#' Print the diff in size between most and least common element
+#'
+#' @param input Puzzle input
+#' @export
+polymer_size <- function(input, times) {
+    .Call(`_aoc2021_polymer_size`, input, times)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.
