@@ -111,6 +111,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_min_risk
+int get_min_risk(std::vector<std::vector<int>> risk);
+RcppExport SEXP _aoc2021_get_min_risk(SEXP riskSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::vector<int>> >::type risk(riskSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_min_risk(risk));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_min_total_risk
+int get_min_total_risk(std::vector<std::vector<int>> risk);
+RcppExport SEXP _aoc2021_get_min_total_risk(SEXP riskSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::vector<int>> >::type risk(riskSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_min_total_risk(risk));
+    return rcpp_result_gen;
+END_RCPP
+}
 // total_distance
 int total_distance(std::vector<std::string> commands);
 RcppExport SEXP _aoc2021_total_distance(SEXP commandsSEXP) {
@@ -393,6 +415,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_total_dots", (DL_FUNC) &_aoc2021_total_dots, 1},
     {"_aoc2021_print_output", (DL_FUNC) &_aoc2021_print_output, 1},
     {"_aoc2021_polymer_size", (DL_FUNC) &_aoc2021_polymer_size, 2},
+    {"_aoc2021_get_min_risk", (DL_FUNC) &_aoc2021_get_min_risk, 1},
+    {"_aoc2021_get_min_total_risk", (DL_FUNC) &_aoc2021_get_min_total_risk, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},

@@ -82,6 +82,24 @@ polymer_size <- function(input, times) {
     .Call(`_aoc2021_polymer_size`, input, times)
 }
 
+#' Get the min risk of traversing risk grid
+#'
+#' @param risk Vector of vector of ints of risk of moving to a space
+#' @return The minimum total risk
+#' @export
+get_min_risk <- function(risk) {
+    .Call(`_aoc2021_get_min_risk`, risk)
+}
+
+#' Get the min risk of traversing full risk grid
+#'
+#' @param risk Vector of vector of ints of risk of moving to a space
+#' @return The minimum total risk
+#' @export
+get_min_total_risk <- function(risk) {
+    .Call(`_aoc2021_get_min_total_risk`, risk)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.
