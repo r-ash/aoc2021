@@ -1,10 +1,11 @@
 #include <Rcpp.h>
 #include <math.h>
+#include <queue>
 #include "day_15.h"
 
 
 int min(std::vector<int> list) {
-  int min = std::numeric_limits<double>::infinity();
+  int min = std::numeric_limits<int>::infinity();
   for (auto elem: list) {
     if (elem < min) {
       min = elem;
@@ -60,82 +61,87 @@ int get_risk_level(int input_risk, int repeat) {
   return value;
 }
 
-// std::pair<int, int> get_min_dist(std::vector<std::pair<int, int>> vertices, std::map<std::pair<int, int>, int> distance) {
-//   std::pair<int, int> min_v = vertices[0];
-//   int min_d = std::numeric_limits<double>::infinity();
-//   for (auto& v: vertices) {
-//     if (distance[v] < min_d) {
-//       min_d = distance[v];
-//       min_v = v;
-//     }
-//   }
-//   return min_v;
-// }
+struct Point {
+  int row, col;
+  Point(const int row, const int col): row(row), col(col) {}
+  bool operator == (const Point& p) const {
+    return row == p.row && col == p.col;
+  }
+};
 
-// int djisktra(std::vector<std::vector<int>> graph) {
-//   std::map<std::pair<int, int>, int> distance;
-//   std::vector<std::pair<int, int>> vertices;
-//   for (size_t i = 0; i < graph.size(); i++) {
-//     for (size_t j = 0; j < graph[0].size(); j++) {
-//       std::pair<int, int> vertex = std::make_pair(i, j);
-//       distance[vertex] = std::numeric_limits<double>::infinity();
-//       vertices.push_back(vertex);
-//     }
-//   }
-//
-//   std::pair<int, int> source = std::make_pair(0, 0);
-//   distance[source] = 0;
-//
-//   while (!vertices.empty()) {
-//     std::pair<int, int> u = get_min_dist(vertices, distance);
-//     vertices
-//   }
-//   // function Dijkstra(Graph, source):
-//   //   2
-//   // 3      create vertex set Q
-//   //   4
-//   // 5      for each vertex v in Graph:
-//   //   6          dist[v] ← INFINITY
-//   //   7          prev[v] ← UNDEFINED
-//   //   8          add v to Q
-//   //   9      dist[source] ← 0
-//   // 10
-//   // 11      while Q is not empty:
-//   //   12          u ← vertex in Q with min dist[u]
-//   // 13
-//   // 14          remove u from Q
-//   //   15
-//   // 16          for each neighbor v of u still in Q:
-//   //   17              alt ← dist[u] + length(u, v)
-//   //   18              if alt < dist[v]:
-//   //     19                  dist[v] ← alt
-//   //     20                  prev[v] ← u
-//   //     21
-//   //   22      return dist[], prev[]
-// }
+struct compare {
+  bool operator () (const std::pair<Point, int>& p1, const std::pair<Point, int>& p2) const {
+    return p1.second > p2.second;
+  }
+};
 
-// Let the node at which we are starting at be called the initial node. Let the distance of node Y be the distance from the
-// initial node to Y. Dijkstra's algorithm will initially start with infinite distances and will try to improve them step by step.
-//
-// Mark all nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.
-// Assign to every node a tentative distance value: set it to zero for our initial node and to infinity
-// for all other nodes. The tentative distance of a node v is the length of the shortest path discovered so far between
-// the node v and the starting node. Since initially no path is known to any other vertex than the source itself (which
-// is a path of length zero), all other tentative distances are initially set to infinity. Set the initial node as current.[15]
+std::vector<Point> get_neighbours(Point p, int width, int height) {
+  std::vector<Point> points;
+  if (p.row > 0) {
+    points.push_back(Point(p.row - 1, p.col));
+  }
+  if (p.col > 0) {
+    points.push_back(Point(p.row, p.col - 1));
+  }
+  if (p.row < height - 1) {
+    points.push_back(Point(p.row + 1, p.col));
+  }
+  if (p.col < width - 1) {
+    points.push_back(Point(p.row, p.col + 1));
+  }
+  return points;
+}
 
-// For the current node, consider all of its unvisited neighbors and calculate their tentative distances
-// through the current node. Compare the newly calculated tentative distance to the current assigned value and
-// assign the smaller one. For example, if the current node A is marked with a distance of 6, and the edge
-// connecting it with a neighbor B has length 2, then the distance to B through A will be 6 + 2 = 8. If B
-// was previously marked with a distance greater than 8 then change it to 8. Otherwise, the current value will be kept.
+int djikstra(std::vector<std::vector<int>> graph) {
+  int width = graph.size();
+  int height = graph[0].size();
+  std::map<Point, int> distance;
+  Point point = Point(0, 0);
+  std::priority_queue<std::pair<Point, int>, std::vector<std::pair<Point, int>>, compare> q;
+  std::vector<Point> seen;
+  q.emplace(point, 0);
 
-// When we are done considering all of the unvisited neighbors of the current node, mark the current node as
-// visited and remove it from the unvisited set. A visited node will never be checked again.
+  while (!q.empty()) {
+    std::pair<Point, int> top = q.top();
+    Point point = top.first;
+    int cost = top.second;
+    q.pop();
+    if(point == Point(width - 1, height - 1)) {
+      // We're at the end, return the cost of getting here
+      return cost;
+    }
+    for (Point& neighbour: get_neighbours(point, width, height)) {
+      int x = graph[neighbour.row][neighbour.col] + cost;
+      if (std::find(seen.begin(), seen.end(), neighbour) == seen.end()) {
+        q.emplace(neighbour, x);
+        seen.push_back(neighbour);
+      }
+    }
+  }
+  return 0;
+}
 
-// If the destination node has been marked visited (when planning a route between two specific nodes)
-// or if the smallest tentative distance among the nodes in the unvisited set is infinity (when planning a
-// complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
-// Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new current node, and go back to step 3.
+// function Dijkstra(Graph, source):
+//   2      dist[source] ← 0                           // Initialization
+// 3
+// 4      create vertex priority queue Q
+//   5
+// 6      for each vertex v in Graph:
+//   7          if v ≠ source
+//     8              dist[v] ← INFINITY                 // Unknown distance from source to v
+//     10
+//   11         Q.add_with_priority(v, dist[v])
+//     12
+//   13
+//   14     while Q is not empty:                      // The main loop
+//     15         u ← Q.extract_min()                    // Remove and return best vertex
+//     16         for each neighbor v of u:              // only v that are still in Q
+//       17             alt ← dist[u] + length(u, v)
+//       18             if alt < dist[v]
+//       19                 dist[v] ← alt
+//         21                 Q.decrease_priority(v, alt)
+//         22
+//       23     return dist, prev
 
 std::vector<std::vector<int>> construct_full_map(std::vector<std::vector<int>> risk) {
   std::vector<int> v(risk[0].size() * 5, 0);
@@ -169,16 +175,5 @@ std::vector<std::vector<int>> construct_full_map(std::vector<std::vector<int>> r
 // [[Rcpp::export]]
 int get_min_total_risk(std::vector<std::vector<int>> risk) {
   std::vector<std::vector<int>> full_risk = construct_full_map(risk);
-  std::vector<std::vector<int>> cumulative = get_cumulative_risk(full_risk);
-  int min = cumulative[cumulative.size() - 1][cumulative[0].size() - 1];
-  int i= 0;
-  while(i < 100) {
-    cumulative = get_cumulative_risk(cumulative);
-    int val = cumulative[cumulative.size() - 1][cumulative[0].size() - 1];
-    if (val < min) {
-      min = val;
-    }
-    i++;
-  }
-  return min;
+  return djikstra(full_risk);
 }
