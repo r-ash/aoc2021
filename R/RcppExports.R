@@ -100,6 +100,28 @@ get_min_total_risk <- function(risk) {
     .Call(`_aoc2021_get_min_total_risk`, risk)
 }
 
+bin_to_int <- function(bin) {
+    .Call(`_aoc2021_bin_to_int`, bin)
+}
+
+#' Sum version numbers of all packets
+#'
+#' @param input The packet hexadecimal
+#' @return The sum of version numbers
+#' @export
+sum_version_numbers <- function(input) {
+    .Call(`_aoc2021_sum_version_numbers`, input)
+}
+
+#' Get the value of package
+#'
+#' @param input The packet hexadecimal
+#' @return The sum of version numbers
+#' @export
+get_package_value <- function(input) {
+    .Call(`_aoc2021_get_package_value`, input)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.
