@@ -57,6 +57,17 @@ get_first_all_flash <- function(octopuses, steps) {
     .Call(`_aoc2021_get_first_all_flash`, octopuses, steps)
 }
 
+#' Get the number of complete paths through caves
+#'
+#' @param commands Vector of size 2 vectors, showing connections from caves
+#' @param small_caves The number of times you can visit a small cave
+#' @param verbose If TRUE print the completed paths
+#' @return The total number of complete caves
+#' @export
+get_num_paths <- function(connections, small_caves, verbose) {
+    .Call(`_aoc2021_get_num_paths`, connections, small_caves, verbose)
+}
+
 #' Get the total number of marked dots after folding
 #'
 #' @param input Puzzle input

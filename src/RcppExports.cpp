@@ -78,6 +78,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_num_paths
+int get_num_paths(std::vector<std::vector<std::string>> connections, int small_caves, bool verbose);
+RcppExport SEXP _aoc2021_get_num_paths(SEXP connectionsSEXP, SEXP small_cavesSEXP, SEXP verboseSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::vector<std::string>> >::type connections(connectionsSEXP);
+    Rcpp::traits::input_parameter< int >::type small_caves(small_cavesSEXP);
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_num_paths(connections, small_caves, verbose));
+    return rcpp_result_gen;
+END_RCPP
+}
 // total_dots
 int total_dots(std::vector<std::string> input);
 RcppExport SEXP _aoc2021_total_dots(SEXP inputSEXP) {
@@ -445,6 +458,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_autocomplete_score", (DL_FUNC) &_aoc2021_autocomplete_score, 1},
     {"_aoc2021_get_flashes", (DL_FUNC) &_aoc2021_get_flashes, 2},
     {"_aoc2021_get_first_all_flash", (DL_FUNC) &_aoc2021_get_first_all_flash, 2},
+    {"_aoc2021_get_num_paths", (DL_FUNC) &_aoc2021_get_num_paths, 3},
     {"_aoc2021_total_dots", (DL_FUNC) &_aoc2021_total_dots, 1},
     {"_aoc2021_print_output", (DL_FUNC) &_aoc2021_print_output, 1},
     {"_aoc2021_polymer_size", (DL_FUNC) &_aoc2021_polymer_size, 2},
