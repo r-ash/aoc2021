@@ -133,6 +133,25 @@ get_package_value <- function(input) {
     .Call(`_aoc2021_get_package_value`, input)
 }
 
+#' Get the path which reaches the highest point and still lands in
+#' target area
+#'
+#' @param limits Vector of size 4 containing x and y upper and lower limits
+#' @return The highest point which lands in target area
+#' @export
+get_highest_path <- function(limits) {
+    .Call(`_aoc2021_get_highest_path`, limits)
+}
+
+#' Get the number of initial velocities which hit target area
+#'
+#' @param limits Vector of size 4 containing x and y upper and lower limits
+#' @return The highest point which lands in target area
+#' @export
+get_no_initial_velocities <- function(limits) {
+    .Call(`_aoc2021_get_no_initial_velocities`, limits)
+}
+
 #' Get the distance traveled from a set of commands.
 #'
 #' This is the result horizontal * result depth.

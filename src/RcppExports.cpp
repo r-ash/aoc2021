@@ -179,6 +179,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_highest_path
+int get_highest_path(std::vector<int> limits);
+RcppExport SEXP _aoc2021_get_highest_path(SEXP limitsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type limits(limitsSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_highest_path(limits));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_no_initial_velocities
+int get_no_initial_velocities(std::vector<int> limits);
+RcppExport SEXP _aoc2021_get_no_initial_velocities(SEXP limitsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<int> >::type limits(limitsSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_no_initial_velocities(limits));
+    return rcpp_result_gen;
+END_RCPP
+}
 // total_distance
 int total_distance(std::vector<std::string> commands);
 RcppExport SEXP _aoc2021_total_distance(SEXP commandsSEXP) {
@@ -467,6 +489,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_bin_to_int", (DL_FUNC) &_aoc2021_bin_to_int, 1},
     {"_aoc2021_sum_version_numbers", (DL_FUNC) &_aoc2021_sum_version_numbers, 1},
     {"_aoc2021_get_package_value", (DL_FUNC) &_aoc2021_get_package_value, 1},
+    {"_aoc2021_get_highest_path", (DL_FUNC) &_aoc2021_get_highest_path, 1},
+    {"_aoc2021_get_no_initial_velocities", (DL_FUNC) &_aoc2021_get_no_initial_velocities, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
