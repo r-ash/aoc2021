@@ -176,6 +176,17 @@ total_distance_2 <- function(commands) {
     .Call(`_aoc2021_total_distance_2`, commands)
 }
 
+#' Get the number of pixels lit in
+#'
+#' @param pixels The
+#' @param small_caves The number of times you can visit a small cave
+#' @param verbose If TRUE print the completed paths
+#' @return The total number of complete caves
+#' @export
+get_number_of_pixels_lit <- function(pixels, algorithm, times) {
+    .Call(`_aoc2021_get_number_of_pixels_lit`, pixels, algorithm, times)
+}
+
 #' Get the power consumption from set of bytes
 #'
 #' @param numbers Vector of binary numbers

@@ -223,6 +223,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// get_number_of_pixels_lit
+int get_number_of_pixels_lit(std::vector<std::string> pixels, std::string algorithm, int times);
+RcppExport SEXP _aoc2021_get_number_of_pixels_lit(SEXP pixelsSEXP, SEXP algorithmSEXP, SEXP timesSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type pixels(pixelsSEXP);
+    Rcpp::traits::input_parameter< std::string >::type algorithm(algorithmSEXP);
+    Rcpp::traits::input_parameter< int >::type times(timesSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_number_of_pixels_lit(pixels, algorithm, times));
+    return rcpp_result_gen;
+END_RCPP
+}
 // power_consumption
 int power_consumption(std::vector<std::string> numbers);
 RcppExport SEXP _aoc2021_power_consumption(SEXP numbersSEXP) {
@@ -493,6 +506,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_aoc2021_get_no_initial_velocities", (DL_FUNC) &_aoc2021_get_no_initial_velocities, 1},
     {"_aoc2021_total_distance", (DL_FUNC) &_aoc2021_total_distance, 1},
     {"_aoc2021_total_distance_2", (DL_FUNC) &_aoc2021_total_distance_2, 1},
+    {"_aoc2021_get_number_of_pixels_lit", (DL_FUNC) &_aoc2021_get_number_of_pixels_lit, 3},
     {"_aoc2021_power_consumption", (DL_FUNC) &_aoc2021_power_consumption, 1},
     {"_aoc2021_life_support_rating", (DL_FUNC) &_aoc2021_life_support_rating, 1},
     {"_aoc2021_winning_score", (DL_FUNC) &_aoc2021_winning_score, 1},
